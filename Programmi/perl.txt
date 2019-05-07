@@ -1,0 +1,109 @@
+  #!/usr/local/bin/perl -l
+   #
+   # Programma con risultato ovvio
+   #
+   print 'Hello world.'; 
+
+$a=9;
+$b='prova';
+print $a;
+print $b;
+$b++;
+print $b;  
+print $b x $a;
+print $b.$a;
+@cibo=("pera", "mela", "ciliegia");
+print join(", ",@cibo);
+push(@cibo, @cibo);
+print join(", ", @cibo);
+$f=pop(@cibo);
+print join(", ",@cibo);
+print $f;
+($g, @roba)=@cibo;
+print $g;
+print join(", ", @roba);
+
+foreach $boccone(@cibo){
+	print "$boccone";
+	print "Eww";
+}
+
+for ($i=0; $i<10; $i++){
+	print "$i";
+}
+
+print "test di prova, inserisci pippo: ";
+$pippo=<STDIN>;
+chop $pippo;
+
+until ($pippo eq "pippo"){
+	print "Sei riuscito a sbagliare, bravo, riprova: ";
+	$pippo=<STDIN>;
+	chop $pippo;
+}
+
+if(@cibo==@cibo){
+	print "We did it";
+}
+
+sub funzione_prova{
+	print "Chissà se funge";
+}
+
+&funzione_prova;
+
+sub addizione{
+	$_[0]+$_[1];
+
+}
+
+$somma=&addizione(2,4);
+print $somma;
+
+sub addizione_locale{
+	local($a, $b)=($_[0], $_[1]);
+	$a+$b+$b+$a+3;
+}
+
+$somma2=&addizione_locale(3,4);
+
+print $somma2;
+
+%info_persone=("Michele perlato", 39, "Marco Rossi", 34, "Rodolfo", "3 anni da pesce", "Guglielmo De filippis", 21, "Artemide del canto", 108);
+
+print $info_persone{"Michele perlato"};
+print $info_persone{"Marco Rossi"};
+print $info_persone{"Rodolfo"};
+print $info_persone{"Guglielmo De filippis"};
+print $info_persone{"Artemide del canto"};
+
+foreach $persona (keys %info_persone){
+	print "Nome dei tizi: $persona";
+}
+
+foreach $anni (values %info_persone){
+	print "Eta dei tizi: $anni";
+}
+
+while(($persona, $anni)=each(%info_persone)){
+	print "$persona ha $anni anni";
+}
+
+$frase="Tanto va la gatta al lardo che ci lascia lo zampino";
+if($frase=~/La/){
+	print "yes";
+}
+else
+{
+	print "oh no";
+}
+
+
+$frase2="Ciro magico di napoli";
+print $frase2;
+$frase2=~ s/Ciro/ciro/;
+print $frase2;
+
+$info = "Aldo:Riso:attore:via Vai, 3";
+@dati=split(/:/, $info);
+print join(", ",@dati);

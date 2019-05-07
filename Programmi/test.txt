@@ -1,0 +1,18 @@
+#!/usr/local/bin/perl
+#
+# Programma per aprire il file pippo.txt, leggerlo,
+# stamparlo a schermo e infine chiuderlo.
+
+# Nome del file da leggere
+$file = 'perl.txt';
+# Apre il file
+open(INFO, $file);
+
+# Legge tutto in un array
+@righe = <INFO>;
+
+# Chiude il file
+close(INFO);
+# Visualizza l'array
+print @righe;
+
